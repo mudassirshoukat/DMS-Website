@@ -1,0 +1,714 @@
+/*
+ * Product page. Built from the shared patterns in site.css (.sec, .sec-alt, .sec-deep, .sec-head, .row,
+ * .item, .cols, .defs, .list-ruled, .shot-stage, .shot-frame, .diagram). This file only adds what the
+ * page needs on top: a one column .defs, the state chips beside the version picture, the three labels,
+ * one person in two workspaces drawn on the page, and the Connected Apps flow drawn without boxes.
+ */
+
+/* The hero meets the band on a fine sapphire hairline, as on Home. */
+.page-product .phero {
+  isolation: isolate;
+}
+
+.page-product .phero::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgb(127 162 255 / 0%) 0%, rgb(127 162 255 / 45%) 30%, rgb(127 162 255 / 40%) 70%, rgb(127 162 255 / 0%) 100%);
+  pointer-events: none;
+}
+
+/* A caption under a picture on its backdrop. */
+.page-product .item > .cap,
+.wide-fig > .cap {
+  margin-top: var(--s3);
+}
+
+.wide-fig {
+  margin: 0;
+}
+
+/* ---------- Upload: the facts in one column ---------- */
+.defs-1 {
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+}
+
+.defs-1 > div {
+  padding-block: 16px 18px;
+}
+
+.defs-1 > div:last-child {
+  border-bottom: 1px solid var(--line-2);
+}
+
+.defs-1 dd {
+  max-width: 46ch;
+  font-size: var(--t-body-sm);
+  line-height: 1.6;
+}
+
+/* ---------- File states: the app's own chips, grouped by phase ---------- */
+.st-groups {
+  display: grid;
+  align-content: start;
+  gap: var(--s6);
+}
+
+.st-group h3 {
+  position: relative;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-2);
+  color: var(--ink);
+}
+
+.st-group h3::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 28px;
+  height: 2px;
+  background: var(--blue-600);
+}
+
+.st-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 8px;
+  margin-top: var(--s4);
+}
+
+/* Danger, as the app shows a failed scan or a failed attempt. Blocked keeps the one solid red chip. */
+.chip-fail {
+  background: #fde8e8;
+  color: #b42318;
+  box-shadow: inset 0 0 0 1px #f5c6c2;
+}
+
+.page-product .chip-off {
+  background: transparent;
+}
+
+#states .cols {
+  margin-top: var(--s8);
+}
+
+/* ---------- Labels ---------- */
+.lbl-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.lbls {
+  margin: 0;
+  border-bottom: 1px solid var(--line-2);
+}
+
+.lbls > div {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--s4);
+  padding-block: 20px;
+  border-top: 1px solid var(--line-2);
+}
+
+.lbls dt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: var(--t-body-sm);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.lbls dt::before {
+  content: '';
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--blue-600);
+}
+
+.lbls dd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: var(--t-h3);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Four levels sit two by two, so none is ever left alone on a line. */
+.lbls dd.levels {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 10px 28px;
+}
+
+.lbls .lv {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.lbls .lv::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--lv);
+  box-shadow: inset 0 0 0 1px rgb(13 33 99 / 10%);
+}
+
+.lbl-note {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  column-gap: var(--s3);
+  margin-top: var(--s5);
+  color: var(--ink-2);
+  font-size: var(--t-body-sm);
+  line-height: 1.6;
+}
+
+.lbl-note .ic {
+  margin-top: 1px;
+  color: var(--blue-600);
+}
+
+/* ---------- One person, two workspaces, drawn on the page ---------- */
+.duo {
+  --tie: var(--blue-200);
+  position: relative;
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  column-gap: 64px;
+  align-items: center;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 28px 0 0;
+  isolation: isolate;
+}
+
+/* A faint lattice of points behind the drawing, as under the Home track. */
+.duo::before {
+  content: '';
+  position: absolute;
+  inset: -8px 0 24px;
+  z-index: -1;
+  background: radial-gradient(circle, rgb(47 99 234 / 18%) 1px, transparent 1.4px) 0 0 / 16px 16px;
+  -webkit-mask-image: radial-gradient(60% 70% at 40% 45%, #000 0%, transparent 85%);
+  mask-image: radial-gradient(60% 70% at 40% 45%, #000 0%, transparent 85%);
+  pointer-events: none;
+}
+
+.duo > .cap {
+  grid-column: 1 / -1;
+  margin-top: var(--s5);
+}
+
+.duo-person {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  text-align: center;
+}
+
+.duo-avatar {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--s3);
+  border-radius: 50%;
+  background: linear-gradient(150deg, #6a93fa 0%, var(--blue-600) 45%, var(--blue-800) 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 28%),
+    0 0 0 6px #fff,
+    0 0 0 7px var(--blue-200),
+    0 14px 26px -14px rgb(29 69 184 / 70%);
+  color: #fff;
+  font-family: var(--font-head);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.duo-person strong {
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: var(--t-h3);
+  font-weight: 600;
+}
+
+.duo-person > span:last-child {
+  color: var(--muted);
+  font-size: var(--t-small);
+}
+
+/* The tie from the person to the spine. */
+.duo-person::after {
+  content: '';
+  position: absolute;
+  top: 32px;
+  left: calc(50% + 39px);
+  width: calc(50% - 39px + 32px);
+  height: 1.5px;
+  background: var(--tie);
+}
+
+.duo-rows {
+  position: relative;
+  display: grid;
+  gap: var(--s5);
+}
+
+/* The spine, from the first workspace to the second. */
+.duo-rows::before {
+  content: '';
+  position: absolute;
+  top: 25%;
+  bottom: 25%;
+  left: -32px;
+  width: 1.5px;
+  background: var(--tie);
+}
+
+.duo-ws {
+  position: relative;
+  padding: 4px 0 4px 22px;
+}
+
+/* The tie from the spine to each workspace, ending in a small point beside its name. */
+.duo-ws::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -32px;
+  width: 30px;
+  height: 1.5px;
+  background: var(--tie);
+}
+
+.duo-ws::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -5px;
+  width: 11px;
+  height: 11px;
+  margin-top: -4.75px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: inset 0 0 0 2px var(--blue-300);
+}
+
+.duo-admin::after {
+  background: var(--blue-600);
+  box-shadow: 0 0 0 4px var(--blue-100);
+}
+
+.duo-name {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  color: var(--muted);
+  font-size: var(--t-small);
+}
+
+.duo-name .ic {
+  width: 16px;
+  height: 16px;
+  color: var(--blue-600);
+}
+
+.duo-role {
+  margin-top: 4px;
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.duo-admin .duo-role {
+  color: var(--blue-700);
+}
+
+.duo-can {
+  margin-top: 4px;
+  color: var(--ink-2);
+  font-size: var(--t-body-sm);
+  line-height: 1.55;
+}
+
+/* ---------- Sharing, on the deep band ---------- */
+.sec-deep .list-ruled > li {
+  border-top-color: var(--hair-dark);
+}
+
+.sec-deep .list-ruled > li > .ic {
+  color: var(--sky);
+}
+
+.sec-deep .list-ruled h3 {
+  color: #fff;
+}
+
+.sec-deep .list-ruled p {
+  color: var(--on-dark-3);
+}
+
+.page-product .sec-deep .share {
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+/* ---------- What comes next: Connected Apps, then the two smaller items ---------- */
+.apps > h3 {
+  color: var(--ink);
+}
+
+.apps-lead {
+  max-width: 62ch;
+  margin-top: 6px;
+  color: var(--ink-2);
+  font-size: var(--t-body-sm);
+  line-height: 1.6;
+}
+
+/* Your product, four lanes, Peaplexa: drawn straight on the band, two fine rails and four arrows. */
+.flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr) minmax(0, 1fr);
+  align-items: center;
+  margin-top: var(--s7);
+}
+
+.flow-node {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.flow-app {
+  padding-right: var(--s6);
+}
+
+.flow-dms {
+  padding-left: var(--s6);
+}
+
+.flow-ic {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: var(--s2);
+  border-radius: 10px;
+  background: linear-gradient(160deg, var(--navy-700), var(--navy-850));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 12%), 0 8px 16px -10px rgb(8 18 51 / 60%);
+  color: var(--sky);
+}
+
+.flow-ic .ic {
+  width: 19px;
+  height: 19px;
+}
+
+.flow-mark {
+  background: none;
+  box-shadow: none;
+}
+
+.flow-mark .mark {
+  width: 40px;
+  height: 40px;
+}
+
+.flow-node strong {
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: var(--t-h3);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.flow-sub {
+  color: var(--ink-2);
+  font-size: var(--t-small);
+  line-height: 1.55;
+}
+
+.flow-facts {
+  display: grid;
+  margin-top: var(--s3);
+  border-top: 1px solid var(--line-2);
+}
+
+.flow-facts li {
+  padding-block: 9px;
+  border-bottom: 1px solid var(--line-2);
+  color: var(--ink-2);
+  font-size: var(--t-small);
+  line-height: 1.5;
+}
+
+.flow-lanes {
+  position: relative;
+  display: grid;
+  gap: 22px;
+  padding: 18px 0;
+}
+
+/* The two rails the lanes run between. */
+.flow-lanes::before,
+.flow-lanes::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+  border-radius: 1px;
+  background: linear-gradient(180deg, rgb(47 99 234 / 0%), var(--blue-300) 14%, var(--blue-300) 86%, rgb(47 99 234 / 0%));
+}
+
+.flow-lanes::before {
+  left: 0;
+}
+
+.flow-lanes::after {
+  right: 0;
+}
+
+.flow-lanes li {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 10px;
+  padding: 0 28px 12px 22px;
+}
+
+.flow-lanes strong {
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: var(--t-body-sm);
+  font-weight: 600;
+}
+
+.flow-lanes span {
+  color: var(--ink-2);
+  font-size: var(--t-small);
+  line-height: 1.45;
+}
+
+/* Each lane's arrow, from rail to rail, under its words. */
+.flow-lanes li::after {
+  content: '';
+  position: absolute;
+  right: 2px;
+  bottom: -5px;
+  left: 2px;
+  height: 10px;
+  background: var(--blue-600);
+  -webkit-mask: linear-gradient(#000, #000) left center / calc(100% - 7px) 1.5px no-repeat, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 10'%3E%3Cpath d='M0 0l8 5-8 5z'/%3E%3C/svg%3E") right center / 8px 10px no-repeat;
+  mask: linear-gradient(#000, #000) left center / calc(100% - 7px) 1.5px no-repeat, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 10'%3E%3Cpath d='M0 0l8 5-8 5z'/%3E%3C/svg%3E") right center / 8px 10px no-repeat;
+}
+
+/* A point where each lane leaves the first rail. */
+.flow-lanes li::before {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: -2.25px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue-600);
+  box-shadow: 0 0 0 3px var(--band-ice);
+}
+
+.apps-defs {
+  margin-top: var(--s7);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1179px) {
+  .flow {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) minmax(0, 1fr);
+  }
+
+  .flow-app {
+    padding-right: var(--s5);
+  }
+
+  .flow-dms {
+    padding-left: var(--s5);
+  }
+
+  .flow-lanes li {
+    padding-right: 20px;
+    padding-left: 16px;
+  }
+}
+
+@media (max-width: 991px) {
+  .lbl-col {
+    max-width: 40rem;
+  }
+
+  .defs-1 {
+    max-width: 40rem;
+  }
+
+  #states .cols {
+    margin-top: var(--s7);
+  }
+
+  .st-groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--gap);
+  }
+
+  .duo {
+    max-width: 560px;
+  }
+
+  /* The flow stacks: your product, the four lanes as a ruled list, then Peaplexa. */
+  .flow {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--s5);
+    align-items: start;
+  }
+
+  .flow-app,
+  .flow-dms {
+    padding: 0;
+  }
+
+  .flow-lanes {
+    padding: 0 0 0 22px;
+    gap: 0;
+  }
+
+  .flow-lanes::after {
+    display: none;
+  }
+
+  .flow-lanes::before {
+    background: var(--blue-300);
+  }
+
+  .flow-lanes li {
+    flex-direction: column;
+    align-items: start;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line-2);
+  }
+
+  .flow-lanes li:first-child {
+    border-top: 1px solid var(--line-2);
+  }
+
+  .flow-lanes li::after {
+    display: none;
+  }
+
+  .flow-lanes li::before {
+    top: 50%;
+    bottom: auto;
+    left: -24.25px;
+    margin-top: -3px;
+  }
+}
+
+@media (max-width: 767px) {
+  .st-groups {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .duo {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--s5);
+    padding-top: var(--s2);
+  }
+
+  .duo-person {
+    grid-template-columns: auto auto;
+    justify-content: start;
+    justify-items: start;
+    align-items: center;
+    column-gap: var(--s4);
+    row-gap: 0;
+    text-align: left;
+  }
+
+  .duo-person strong {
+    align-self: end;
+  }
+
+  .duo-person > span:last-child {
+    align-self: start;
+  }
+
+  .duo-avatar {
+    grid-row: 1 / span 2;
+    width: 52px;
+    height: 52px;
+    margin: 0 4px 0 7px;
+    font-size: 1rem;
+  }
+
+  .duo-person::after,
+  .duo-rows::before,
+  .duo-ws::before {
+    display: none;
+  }
+
+  .duo-ws {
+    padding-left: 18px;
+    border-left: 2px solid var(--blue-200);
+  }
+
+  .duo-admin {
+    border-left-color: var(--blue-600);
+  }
+
+  .duo-ws::after {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .lbls > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    padding-block: 16px;
+  }
+
+  .lbls dd {
+    padding-left: 16px;
+  }
+
+  .duo-role {
+    font-size: 1.25rem;
+  }
+
+  .next-cols {
+    row-gap: var(--s6);
+  }
+}

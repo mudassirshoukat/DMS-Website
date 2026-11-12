@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product | Peaplexa Intelligent Document Management</title>
+<meta name="description" content="What Peaplexa does today: upload with a security scan, named file states, full version history, labels and a filterable library, a workspace per organization with roles, sharing with clients and vendors, and watched folders. Plus what is coming soon.">
+<meta name="theme-color" content="#070d1c">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Peaplexa by Datagonomix">
+<meta property="og:title" content="Product | Peaplexa Intelligent Document Management">
+<meta property="og:description" content="What Peaplexa does today: upload with a security scan, named file states, full version history, labels and a filterable library, a workspace per organization with roles, sharing with clients and vendors, and watched folders. Plus what is coming soon.">
+<meta property="og:image" content="/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/outfit-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/noto-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="stylesheet" href="/assets/css/page-product.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="page-product">
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="mark-doc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9BEBFA"/><stop offset=".5" stop-color="#45D6F2"/><stop offset="1" stop-color="#2F7BFF"/></linearGradient>
+    <linearGradient id="mark-rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#45D6F2"/><stop offset="1" stop-color="#2F7BFF"/></linearGradient>
+    <symbol id="brand-mark" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="19" fill="#0A1A3C" stroke="url(#mark-rim)" stroke-width="1.6"/>
+      <path d="M14.4 9.8h7.6l5.8 5.8v13.4c0 .7-.6 1.3-1.3 1.3H14.4c-.7 0-1.3-.6-1.3-1.3V11.1c0-.7.6-1.3 1.3-1.3z" fill="url(#mark-doc)"/>
+      <path d="M22 9.8l5.8 5.8h-4.5c-.7 0-1.3-.6-1.3-1.3z" fill="#D6FAFF"/>
+      <path d="M16.5 19.6h7.8M16.5 22.9h7.8M16.5 26.2h4.7" stroke="#07214F" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+    </symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4.5M7.75 8.75 12 4.5l4.25 4.25M4.5 14.5v4A1.5 1.5 0 0 0 6 20h12a1.5 1.5 0 0 0 1.5-1.5v-4"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 5.5 6v5.6c0 4 2.7 7.3 6.5 8.9 3.8-1.6 6.5-4.9 6.5-8.9V6z"/><path d="m9.25 12.1 2 2 3.6-3.8"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 4 8.75 12 13l8-4.25z"/><path d="M4 12.5 12 16.75l8-4.25M4 16.25 12 20.5l8-4.25"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.25"/><path d="m8.6 12.2 2.4 2.4 4.5-4.7"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5.5 12.5 4.25 4.25L18.5 8"/></symbol>
+    <symbol id="i-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.6 3.75h6.8l4.85 4.85v6.8l-4.85 4.85H8.6l-4.85-4.85V8.6z"/><path d="m9.5 9.5 5 5M14.5 9.5l-5 5"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 7.5A1.75 1.75 0 0 1 5.5 5.75h3.6l2 2h7.4a1.75 1.75 0 0 1 1.75 1.75v7.75A1.75 1.75 0 0 1 18.5 19h-13a1.75 1.75 0 0 1-1.75-1.75z"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V5.75A1.75 1.75 0 0 1 6.75 4h6.5A1.75 1.75 0 0 1 15 5.75V20M15 9.5h2.25A1.75 1.75 0 0 1 19 11.25V20M3.5 20h17M8.5 8h3M8.5 11.5h3M8.5 15h3"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.25" r="3.75"/><path d="M5 19.75c.9-3.3 3.6-5.25 7-5.25s6.1 1.95 7 5.25"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15.5" r="3.75"/><path d="m10.75 12.75 8.5-8.5M15.75 7.75l2.5 2.5M17.75 5.75l2 2"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m15.5 15.5 4.75 4.75"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.75h6.75L18.5 8.5v10.25A1.75 1.75 0 0 1 16.75 20.5h-9.5a1.75 1.75 0 0 1-1.75-1.75V5.5A1.75 1.75 0 0 1 7 3.75z"/><path d="M13.5 3.75V8.75h5M9 13h6M9 16.5h4"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.25" width="14" height="10" rx="1.75"/><path d="M8.5 10.25v-2.5a3.5 3.5 0 0 1 7 0v2.5"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4.5h5.5V10M19.5 4.5 11.25 12.75"/><path d="M18 13.75v4.75a1.5 1.5 0 0 1-1.5 1.5H6a1.5 1.5 0 0 1-1.5-1.5V8A1.5 1.5 0 0 1 6 6.5h4.75"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.75 12a7.25 7.25 0 1 0 2.1-5.1M4.75 4.5V8h3.5"/><path d="M12 8.25v4l2.75 1.75"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3.75V8M15 3.75V8M6.5 8h11v3a5.5 5.5 0 0 1-11 0zM12 16.5v3.75"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 12.1V5.5A1.75 1.75 0 0 1 5.5 3.75h6.6l8.15 8.15a1.75 1.75 0 0 1 0 2.5l-5.85 5.85a1.75 1.75 0 0 1-2.5 0z"/><circle cx="8.5" cy="8.5" r="1.25"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.75 12S6.25 5.75 12 5.75 21.25 12 21.25 12 17.75 18.25 12 18.25 2.75 12 2.75 12z"/><circle cx="12" cy="12" r="2.75"/></symbol>
+    <symbol id="i-sync" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19.25 9.25A7.5 7.5 0 0 0 5.6 7.4M4.75 4.25v3.5h3.5M4.75 14.75A7.5 7.5 0 0 0 18.4 16.6M19.25 19.75v-3.5h-3.5"/></symbol>
+    <symbol id="i-inbox" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 13.5 6.1 6.1A1.75 1.75 0 0 1 7.75 5h8.5a1.75 1.75 0 0 1 1.65 1.1l2.35 7.4v4.75A1.75 1.75 0 0 1 18.5 20h-13a1.75 1.75 0 0 1-1.75-1.75z"/><path d="M3.75 13.5H8l1.5 2.5h5l1.5-2.5h4.25"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.75" y="5.75" width="16.5" height="12.5" rx="1.75"/><path d="m4.5 7 7.5 6 7.5-6"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.75" r="3.25"/><path d="M3.25 19c.75-2.9 3-4.75 5.75-4.75s5 1.85 5.75 4.75"/><path d="M15.25 5.75a3.25 3.25 0 0 1 0 6.25M17 14.5c2 .5 3.3 2.1 3.75 4.5"/></symbol>
+  </defs>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="mainbar">
+    <div class="wrap mainbar-in">
+      <a class="brand" href="/" aria-label="Peaplexa home">
+        <svg class="mark" viewBox="0 0 40 40" width="30" height="30" aria-hidden="true" focusable="false"><use href="#brand-mark"/></svg>
+        <span class="brand-name">Peaplexa</span>
+        <span class="brand-sub">Intelligent Document Management</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <ul class="nav-list">
+          <li class="nav-item has-menu">
+    <button class="nav-top" type="button" aria-expanded="false" aria-controls="menu-product" aria-current="page">Product<svg class="chev" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <div class="menu menu-wide" id="menu-product">
+      <div class="menu-cols"><div class="menu-col"><p class="menu-group">Files</p><ul><li><a href="/product/#upload"><strong>Upload and scan</strong><span>A security scan on every upload, before anything else</span></a></li><li><a href="/product/#states"><strong>File states</strong><span>Every scan and processing state, named on screen</span></a></li><li><a href="/product/#versions"><strong>Versions</strong><span>A numbered history with change notes</span></a></li><li><a href="/product/#labels"><strong>Labels and library</strong><span>Type, classification and status on every document</span></a></li></ul></div><div class="menu-col"><p class="menu-group">Access</p><ul><li><a href="/product/#workspaces"><strong>Workspaces and roles</strong><span>A workspace per organization, a role per person</span></a></li><li><a href="/product/#sharing"><strong>Sharing</strong><span>Exact versions for client and vendor contacts</span></a></li><li><a href="/product/#watched"><strong>Watched folders</strong><span>Files brought in from a configured source</span></a></li></ul></div><div class="menu-col"><p class="menu-group">Coming soon</p><ul><li><a href="/product/#search"><strong>Search and PDF viewer</strong><span>Find the passage, open the page</span></a></li><li><a href="/product/#connected-apps"><strong>Connected Apps</strong><span>Your own products, through the Integration API</span></a></li><li><a href="/product/#signup"><strong>Sign-up by email</strong><span>Create your organization yourself</span></a></li></ul></div></div>
+      <a class="menu-foot" href="/product/">See the whole product<svg class="arr arr-r" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M2.5 8h11M9.25 3.75 13.5 8l-4.25 4.25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </li><li class="nav-item has-menu">
+    <button class="nav-top" type="button" aria-expanded="false" aria-controls="menu-who">Who it is for<svg class="chev" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <div class="menu" id="menu-who">
+      <div class="menu-cols"><div class="menu-col"><ul><li><a href="/who-it-is-for/#org-admins"><strong>Org Admins</strong><span>Run the workspace: people, sharing, upkeep</span></a></li><li><a href="/who-it-is-for/#document-managers"><strong>Document Managers</strong><span>Upload, revise and share what they own</span></a></li><li><a href="/who-it-is-for/#members"><strong>Members</strong><span>Find and read the workspace's documents</span></a></li><li><a href="/who-it-is-for/#portal-users"><strong>Clients and vendors</strong><span>Only the versions shared with their company</span></a></li><li><a href="/who-it-is-for/#operators"><strong>The Peaplexa team</strong><span>Sets up your organization and invitations</span></a></li><li><a href="/who-it-is-for/#apps"><strong>Your own products</strong><span>Connected Apps, coming soon</span></a></li></ul></div></div>
+      <a class="menu-foot" href="/who-it-is-for/#compare">Compare the roles<svg class="arr arr-r" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M2.5 8h11M9.25 3.75 13.5 8l-4.25 4.25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </li><li class="nav-item has-menu">
+    <button class="nav-top" type="button" aria-expanded="false" aria-controls="menu-security">Security<svg class="chev" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <div class="menu" id="menu-security">
+      <div class="menu-cols"><div class="menu-col"><ul><li><a href="/security/#scan"><strong>The upload scan</strong><span>What happens to a file the scan blocks</span></a></li><li><a href="/security/#access"><strong>Who can reach a file</strong><span>Workspace roles, sharing and server checks</span></a></li><li><a href="/security/#sessions"><strong>Sign-in and sessions</strong><span>Tokens, one-time links, sign out everywhere</span></a></li><li><a href="/security/#apps"><strong>Connected App credentials</strong><span>Secrets, rotation and short-lived tokens</span></a></li><li><a href="/security/#questions"><strong>What this page leaves out</strong><span>And how to ask about it</span></a></li></ul></div></div>
+      <a class="menu-foot" href="/security/">Read the Security page<svg class="arr arr-r" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M2.5 8h11M9.25 3.75 13.5 8l-4.25 4.25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </li>
+          <li class="nav-item"><a class="nav-top" href="/request-a-demo/#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="nav-signin" href="#">Sign in</a>
+      <a class="btn btn-pill nav-cta" href="/request-a-demo/">Request a demo</a>
+      <button class="drawer-toggle" type="button" aria-expanded="false" aria-controls="drawer">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>Menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="drawer-scrim" hidden></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+  <div class="drawer-head">
+    <a class="brand brand-dark" href="/" aria-label="Peaplexa home"><svg class="mark" viewBox="0 0 40 40" width="34" height="34" aria-hidden="true" focusable="false"><use href="#brand-mark"/></svg><span class="brand-name">Peaplexa</span></a>
+    <button class="drawer-close" type="button" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <nav aria-label="Site menu links">
+    <ul class="drawer-list">
+      <li class="drawer-group">
+    <button class="drawer-top" type="button" aria-expanded="false" aria-controls="drawer-product">Product<svg class="chev" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <ul class="drawer-sub" id="drawer-product" hidden>
+      <li><a href="/product/">Product overview</a></li>
+      <li><a href="/product/#upload">Upload and scan</a></li><li><a href="/product/#states">File states</a></li><li><a href="/product/#versions">Versions</a></li><li><a href="/product/#labels">Labels and library</a></li><li><a href="/product/#workspaces">Workspaces and roles</a></li><li><a href="/product/#sharing">Sharing</a></li><li><a href="/product/#watched">Watched folders</a></li><li><a href="/product/#search">Search and PDF viewer</a></li><li><a href="/product/#connected-apps">Connected Apps</a></li><li><a href="/product/#signup">Sign-up by email</a></li>
+    </ul>
+  </li><li class="drawer-group">
+    <button class="drawer-top" type="button" aria-expanded="false" aria-controls="drawer-who">Who it is for<svg class="chev" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <ul class="drawer-sub" id="drawer-who" hidden>
+      <li><a href="/who-it-is-for/">Who it is for overview</a></li>
+      <li><a href="/who-it-is-for/#org-admins">Org Admins</a></li><li><a href="/who-it-is-for/#document-managers">Document Managers</a></li><li><a href="/who-it-is-for/#members">Members</a></li><li><a href="/who-it-is-for/#portal-users">Clients and vendors</a></li><li><a href="/who-it-is-for/#operators">The Peaplexa team</a></li><li><a href="/who-it-is-for/#apps">Your own products</a></li>
+    </ul>
+  </li><li class="drawer-group">
+    <button class="drawer-top" type="button" aria-expanded="false" aria-controls="drawer-security">Security<svg class="chev" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <ul class="drawer-sub" id="drawer-security" hidden>
+      <li><a href="/security/">Security overview</a></li>
+      <li><a href="/security/#scan">The upload scan</a></li><li><a href="/security/#access">Who can reach a file</a></li><li><a href="/security/#sessions">Sign-in and sessions</a></li><li><a href="/security/#apps">Connected App credentials</a></li><li><a href="/security/#questions">What this page leaves out</a></li>
+    </ul>
+  </li>
+      <li><a class="drawer-top" href="/request-a-demo/#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="drawer-foot">
+    <a class="btn btn-pill" href="/request-a-demo/">Request a demo</a>
+    <a class="drawer-signin" href="#">Sign in to the app</a>
+  </div>
+</aside>
+
+<main id="main" tabindex="-1">
+<section class="phero on-dark navy-field" aria-labelledby="product-title">
+  <div class="phero-copy">
+    <h1 id="product-title">Peaplexa checks every file, keeps every version and shares only what you choose.</h1>
+    <p class="lead">A security scan on every upload, a numbered version history, labels that make a library easy to filter, a workspace for each organization, and exact versions shared with clients and vendors.</p>
+    <div class="actions">
+      <a class="btn btn-pill" href="/request-a-demo/">Request a demo</a>
+      <a class="more" href="#coming">What is coming soon<svg class="arr arr-d" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M8 2.5v11M3.75 9.25 8 13.5l4.25-4.25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+  <div class="phero-fig">
+    <div class="stack">
+      <div class="frame frame-dark stack-back"><div class="shot" style="--iw: 1200; --cx: 214; --cy: 0; --cw: 986; --ch: 534; --mx: 222; --my: 40; --mw: 430; --mh: 380"><img src="/assets/img/library-1200.webp" srcset="/assets/img/library-1200.webp 1200w, /assets/img/library-2400.webp 2400w" sizes="(max-width: 991px) 220vw, 68vw" width="2400" height="1300" alt="The Peaplexa documents library for Northwind Holdings: a table of documents with type, classification, status, version and last changed, with filters above it." decoding="async" fetchpriority="high"></div></div>
+      <div class="frame frame-dark stack-front"><div class="shot" style="--iw: 1200; --cx: 233; --cy: 40; --cw: 590; --ch: 280"><img src="/assets/img/upload-1200.webp" srcset="/assets/img/upload-1200.webp 1200w, /assets/img/upload-2400.webp 2400w" sizes="(max-width: 991px) 1px, 64vw" width="2400" height="1367" alt="The Upload a document page in Peaplexa: a drop area for one file, up to 50 MB." decoding="async" loading="lazy"></div></div>
+    </div>
+  </div>
+</section>
+<div class="band-sentinel" aria-hidden="true"></div>
+<nav class="band" aria-label="Product capabilities">
+  <div class="wrap band-in">
+    <a class="band-home" href="/" aria-label="Peaplexa home"><svg class="mark" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><use href="#brand-mark"/></svg></a>
+    <ul class="band-links"><li><a href="/product/#upload">Upload and scan</a></li><li><a href="/product/#states">File states</a></li><li><a href="/product/#versions">Versions</a></li><li><a href="/product/#labels">Labels and library</a></li><li><a href="/product/#workspaces">Workspaces and roles</a></li><li><a href="/product/#sharing">Sharing</a></li><li><a href="/product/#watched">Watched folders</a></li><li><a href="/product/#coming">Coming soon</a></li></ul>
+    <button class="band-more" type="button" tabindex="-1" aria-hidden="true"><svg class="chev" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <a class="band-cta" href="/request-a-demo/">Request a demo</a>
+  </div>
+</nav>
+
+<section class="sec" id="upload" aria-labelledby="upload-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-ic"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-upload"/></svg></span><h2 id="upload-title">An upload form that asks for what matters</h2></div>
+      <a class="more" href="/security/#scan">How the upload scan works<svg class="arr arr-r" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M2.5 8h11M9.25 3.75 13.5 8l-4.25 4.25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <p class="sec-intro">Title, organization, type and classification are required. Type and classification start empty, so someone always chooses them on purpose. Then the security scan runs, before anything else.</p>
+    </div>
+    <div class="sec-body row">
+      <dl class="defs defs-1 span-5">
+        <div><dt>Per upload</dt><dd>One file, up to 50 MiB, with a name of up to 255 characters.</dd></div>
+        <div><dt>File types</dt><dd>PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, TXT, CSV, JPG, JPEG, PNG, TIF, TIFF, BMP, WEBP and GIF. ZIP files are refused.</dd></div>
+        <div><dt>Optional</dt><dd>A description, and a change note for the version history.</dd></div>
+        <div><dt>While sending</dt><dd>Progress with a Cancel button. Leaving the page asks first, and sending the same upload again never makes a second document.</dd></div>
+      </dl>
+      <figure class="item span-7">
+        <div class="shot-stage">
+          <div class="shot-frame"><div class="shot" style="--iw: 1200; --cx: 548; --cy: 200; --cw: 632; --ch: 272; --mw: 352"><img src="/assets/img/upload-1200.webp" srcset="/assets/img/upload-1200.webp 1200w, /assets/img/upload-2400.webp 2400w" sizes="(max-width: 600px) 340vw, 1300px" width="2400" height="1367" alt="The Peaplexa upload form: a drop area for one file up to 50 MB, a title field, and Type and Classification fields that start empty." decoding="async" loading="lazy"></div></div>
+        </div>
+        <figcaption class="cap">Type and classification start empty in the upload form. Sample data.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="states" aria-labelledby="states-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-ic"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-layers"/></svg></span><h2 id="states-title">You always know where a file stands</h2></div>
+      <p class="sec-intro">The scan runs first and processing second. The version page names the state of both, lists every attempt with its times, and updates on its own while the work runs.</p>
+    </div>
+    <div class="sec-body">
+      <div class="row">
+        <figure class="item span-8">
+          <div class="shot-stage">
+            <div class="shot-frame"><div class="shot" style="--iw: 1200; --cx: 233; --cy: 165; --cw: 947; --ch: 400; --mw: 300; --mh: 250"><img src="/assets/img/version-1200.webp" srcset="/assets/img/version-1200.webp 1200w, /assets/img/version-2400.webp 2400w" sizes="(max-width: 600px) 400vw, 1200px" width="2400" height="1217" alt="The Processing panel of a Peaplexa version: Scan passed, Processed, Searchable, the latest attempt and its times, and a table of two processing attempts." decoding="async" loading="lazy"></div></div>
+          </div>
+          <figcaption class="cap">The Processing panel and attempts of a version, with sample data.</figcaption>
+        </figure>
+        <div class="st-groups span-4">
+          <div class="st-group">
+            <h3>Security scan</h3>
+            <ul class="st-chips">
+              <li class="chip chip-wait">Waiting for scan</li>
+              <li class="chip chip-scan">Scanning</li>
+              <li class="chip chip-ok">Scan passed</li>
+              <li class="chip chip-bad">Blocked by the scan</li>
+              <li class="chip chip-fail">Scan failed</li>
+            </ul>
+          </div>
+          <div class="st-group">
+            <h3>Processing</h3>
+            <ul class="st-chips">
+              <li class="chip chip-wait">Waiting to start</li>
+              <li class="chip chip-proc">Preparing</li>
+              <li class="chip chip-wait">Queued</li>
+              <li class="chip chip-proc">Processing</li>
+              <li class="chip chip-ok">Processed</li>
+              <li class="chip chip-fail">Processing failed</li>
+              <li class="chip chip-off">Cancelled</li>
+              <li class="chip chip-off">Replaced by a newer attempt</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="cols cols-3">
+        <div class="col"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-sync"/></svg><h3>Retry or reindex</h3><p>An Org Admin can retry a failed attempt or reindex a version, after confirming. Both wait one minute after the last request, and the page counts it down.</p></div>
+        <div class="col"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-history"/></svg><h3>Checked again</h3><p>Some failed attempts are checked again automatically, at a time the page shows.</p></div>
+        <div class="col"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-block"/></svg><h3>No retry for a blocked file</h3><p>A file the scan blocks is never processed, and Retry and Reindex are not offered.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="versions" aria-labelledby="versions-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-ic"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-history"/></svg></span><h2 id="versions-title">A numbered history, with the current version always clear</h2></div>
+      <p class="sec-intro">Each version keeps its file name, size, uploader, date, change note and state. A new version is current as soon as it is saved, and the older ones stay listed under it.</p>
+    </div>
+    <div class="sec-body">
+      <figure class="wide-fig">
+        <div class="shot-stage shot-wide">
+          <div class="shot-frame"><div class="shot" style="--iw: 1200; --cx: 24; --cy: 612; --cw: 1152; --ch: 222; --mw: 420"><img src="/assets/img/detail-1200.webp" srcset="/assets/img/detail-1200.webp 1200w, /assets/img/detail-2368.webp 2368w" sizes="(max-width: 600px) 300vw, 1400px" width="2368" height="1720" alt="The version history of a Peaplexa document: Version 3 is current, with Version 2 and Version 1 below it, each with its file name, size, uploader, date and change note." decoding="async" loading="lazy"></div></div>
+        </div>
+        <figcaption class="cap">The version history on a document page, with sample data.</figcaption>
+      </figure>
+      <div class="cols cols-4">
+        <div class="col"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-user"/></svg><h3>Who adds a version</h3><p>An Org Admin, or the Document Manager who owns the document.</p></div>
+        <div class="col"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-check-circle"/></svg><h3>Only real changes</h3><p>A file identical to the current version is refused.</p></div>
+        <div class="col"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-sync"/></svg><h3>No lost work</h3><p>If someone else changed the document while you worked, the page reloads and keeps your file and note.</p></div>
+        <div class="col"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-block"/></svg><h3>A blocked version</h3><p>The page says so and you upload another. The earlier version does not become current again.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="labels" aria-labelledby="labels-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-ic"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-tag"/></svg></span><h2 id="labels-title">Three labels make any library easy to filter</h2></div>
+      <p class="sec-intro">The library filters by type, classification and status, and finds a document by its title or ID. A filtered view is a link you can share.</p>
+    </div>
+    <div class="sec-body row">
+      <figure class="item span-7">
+        <div class="shot-stage">
+          <div class="shot-frame"><div class="shot" style="--iw: 1200; --cx: 24; --cy: 228; --cw: 520; --ch: 279; --mw: 360"><img src="/assets/img/finance-lib-1200.webp" srcset="/assets/img/finance-lib-1200.webp 1200w, /assets/img/finance-lib-2368.webp 2368w" sizes="(max-width: 600px) 330vw, 1200px" width="2368" height="1400" alt="The Peaplexa library with its status views and Type filter, listing invoices with their type, classification and status." decoding="async" loading="lazy"></div></div>
+        </div>
+        <figcaption class="cap">The library, filtered and searched. Sample data.</figcaption>
+      </figure>
+      <div class="lbl-col span-5">
+        <dl class="lbls">
+          <div><dt>Type</dt><dd><span>Contract</span><span>Manual</span><span>Other</span></dd></div>
+          <div><dt>Classification</dt><dd class="levels"><span class="lv lv-1">Public</span><span class="lv lv-2">Internal</span><span class="lv lv-3">Confidential</span><span class="lv lv-4">Restricted</span></dd></div>
+          <div><dt>Status</dt><dd><span>Active</span><span>Archived</span><span>Removed</span></dd></div>
+        </dl>
+        <p class="lbl-note"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-lock"/></svg><span>Public is a label, not a setting: it does not make a file visible outside Peaplexa.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="workspaces" aria-labelledby="workspaces-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-ic"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-people"/></svg></span><h2 id="workspaces-title">Roles belong to the workspace, not the person</h2></div>
+      <a class="more" href="/who-it-is-for/#compare">Compare the roles<svg class="arr arr-r" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M2.5 8h11M9.25 3.75 13.5 8l-4.25 4.25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <p class="sec-intro">Each organization is a workspace. Its Org Admin gives every member a role there: Org Admin, Document Manager or Member. What a person can do follows the workspace they have open.</p>
+    </div>
+    <div class="sec-body row">
+      <ul class="list-ruled span-5">
+        <li><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-user"/></svg><div><h3>People and their roles</h3><p>Org Admins add an existing account, change its role, and deactivate or reactivate its access.</p></div></li>
+        <li><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-shield"/></svg><div><h3>Never without an Org Admin</h3><p>A workspace always keeps at least one active Org Admin.</p></div></li>
+        <li><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg><div><h3>A clean switch</h3><p>Switching workspace clears the previous one's results and open documents.</p></div></li>
+      </ul>
+      <div class="diagram span-7">
+        <figure class="duo" aria-label="Example with sample names: one person, Emily, is an Org Admin in the Northwind Holdings workspace and a Member in the Contoso Legal workspace.">
+          <div class="duo-person"><span class="duo-avatar">EH</span><strong>Emily</strong><span>one account</span></div>
+          <div class="duo-rows">
+            <div class="duo-ws duo-admin">
+              <p class="duo-name"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg>Northwind Holdings</p>
+              <p class="duo-role">Org Admin</p>
+              <p class="duo-can">Adds members, shares any version, retries and reindexes.</p>
+            </div>
+            <div class="duo-ws duo-member">
+              <p class="duo-name"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg>Contoso Legal</p>
+              <p class="duo-role">Member</p>
+              <p class="duo-can">Finds and reads documents. Changes nothing.</p>
+            </div>
+          </div>
+          <figcaption class="cap">An example with sample names.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-deep" id="sharing" aria-labelledby="sharing-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-ic"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-share"/></svg></span><h2 id="sharing-title">Share one exact version with a client or vendor</h2></div>
+      <a class="more" href="/who-it-is-for/#portal-users">What clients and vendors see<svg class="arr arr-r" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M2.5 8h11M9.25 3.75 13.5 8l-4.25 4.25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <p class="sec-intro">Client and vendor contacts sign in as Portal Users. They open only the exact versions shared with their company.</p>
+    </div>
+    <div class="sec-body row">
+      <ul class="list-ruled span-5">
+        <li><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-building"/></svg><div><h3>Their company, linked</h3><p>An Org Admin adds the client or vendor company and links its contacts to it.</p></div></li>
+        <li><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-share"/></svg><div><h3>One exact version</h3><p>An Org Admin, or the Document Manager who owns the document, shares that exact version with the company.</p></div></li>
+        <li><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg><div><h3>Opened with its details</h3><p>The contact opens the shared version and its details. The rest of your workspace stays out of view.</p></div></li>
+      </ul>
+      <div class="diagram span-7"><figure class="share fig" aria-label="Diagram: of four documents in a workspace, two exact versions are shared with a vendor company and reach its Portal User. The other two stay in the workspace.">
+  <div class="share-side share-ws">
+    <p class="share-title"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg>Your workspace</p>
+    <ul class="sheets">
+      <li class="sheet-on"><span class="sheet-doc"></span><span>Version 2 shared</span></li>
+      <li><span class="sheet-doc"></span><span>Not shared</span></li>
+      <li class="sheet-on"><span class="sheet-doc"></span><span>Version 3 shared</span></li>
+      <li><span class="sheet-doc"></span><span>Not shared</span></li>
+    </ul>
+  </div>
+  <div class="share-beam" aria-hidden="true"></div>
+  <div class="share-side share-co">
+    <p class="share-title"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-building"/></svg>Vendor company</p>
+    <div class="share-user"><span class="dual-avatar"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-user"/></svg></span><span><strong>Portal User</strong>Sees these two versions</span></div>
+    <ul class="sheets sheets-in">
+      <li class="sheet-on"><span class="sheet-doc"></span><span>Version 2</span></li>
+      <li class="sheet-on"><span class="sheet-doc"></span><span>Version 3</span></li>
+    </ul>
+  </div>
+</figure>
+</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="watched" aria-labelledby="watched-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-ic"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-inbox"/></svg></span><h2 id="watched-title">Bring files in from a watched folder</h2></div>
+      <p class="sec-intro">A watched source is set up on the server with its workspace, owner, default type and default classification.</p>
+    </div>
+    <div class="sec-body">
+      <figure class="wide-fig">
+        <div class="shot-stage shot-wide">
+          <div class="shot-frame"><div class="shot" style="--iw: 1200; --cx: 25; --cy: 238; --cw: 1155; --ch: 474; --mx: 605; --my: 240; --mw: 390; --mh: 166"><img src="/assets/img/watched-1200.webp" srcset="/assets/img/watched-1200.webp 1200w, /assets/img/watched-2368.webp 2368w" sizes="(max-width: 600px) 320vw, 1400px" width="2368" height="1560" alt="A Peaplexa watched source: its workspace, owner and defaults, its activity with 16 tracked, 3 failed and 1 missing file, and a table of files with their states, failures and next attempt." decoding="async" loading="lazy"></div></div>
+        </div>
+        <figcaption class="cap">A watched source in Peaplexa, with sample data.</figcaption>
+      </figure>
+      <div class="cols cols-3">
+        <div class="col"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg><h3>What an Org Admin sees</h3><p>The last check, the counts of tracked, failed and missing files, and the state of each file.</p></div>
+        <div class="col"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-user"/></svg><h3>Requires review</h3><p>Marks a file that needs a person.</p></div>
+        <div class="col"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-file"/></svg><h3>Where a version came from</h3><p>Every version records whether it came from an upload or a watched folder.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="coming" aria-labelledby="coming-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-title"><span class="sec-ic"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-plug"/></svg></span><h2 id="coming-title">What comes next</h2></div>
+      <p class="sec-intro">The server side of each is built. Their screens are being finished and tested, and this page will say when each one is ready.</p>
+    </div>
+    <div class="sec-body">
+      <article class="apps" id="connected-apps" aria-labelledby="apps-title">
+        <h3 id="apps-title">Connected Apps <span class="soon">Coming soon</span></h3>
+        <p class="apps-lead">Connect a product your company runs, such as an HR system. Its documents live in Peaplexa, and its people see only what they are granted.</p>
+        <div class="flow">
+          <div class="flow-node flow-app">
+            <span class="flow-ic"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-plug"/></svg></span>
+            <strong>Your product</strong>
+            <span class="flow-sub">Its backend keeps the app's client ID and secret.</span>
+            <ul class="flow-facts">
+              <li>Exchanges them for an access token that lasts one hour.</li>
+              <li>Names the person it acts for with your product's own user ID.</li>
+            </ul>
+          </div>
+          <ul class="flow-lanes">
+            <li><strong>Upload</strong><span>Files and new versions, scanned like any upload</span></li>
+            <li><strong>Sync access</strong><span>Members, groups and grants from your product</span></li>
+            <li><strong>Search</strong><span>On behalf of a person, within their grants</span></li>
+            <li><strong>View</strong><span>The exact PDF, with a 30-minute viewer token</span></li>
+          </ul>
+          <div class="flow-node flow-dms">
+            <span class="flow-ic flow-mark"><svg class="mark" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true" focusable="false"><use href="#brand-mark"/></svg></span>
+            <strong>Peaplexa</strong>
+            <span class="flow-sub">Each app's libraries, members and documents are kept apart.</span>
+            <ul class="flow-facts">
+              <li>Scans every upload before it is processed.</li>
+              <li>Checks the person's grants on every search and PDF request.</li>
+            </ul>
+          </div>
+        </div>
+        <dl class="defs apps-defs">
+          <div><dt>Register an app</dt><dd>An Org Admin registers it and gets a client ID and a secret, shown once.</dd></div>
+          <div><dt>Its own libraries</dt><dd>Each app has its own libraries, starting with a default one, and its own members and groups.</dd></div>
+          <div><dt>Four privileges</dt><dd>Upload, Manage access, Search and View. The app gets only what you allow.</dd></div>
+          <div><dt>Rotation</dt><dd>Up to two secrets can be active, so your backend can switch before the old one is revoked.</dd></div>
+          <div><dt>PDFs in your product</dt><dd>List up to ten HTTPS addresses of your product's site, and it can open the PDFs its people may see.</dd></div>
+          <div><dt>App member sign-in</dt><dd>People can sign in through your product's own sign-in to a read-only view: browse, search and open.</dd></div>
+        </dl>
+      </article>
+      <div class="cols cols-2 next-cols">
+        <article class="col" id="search" aria-labelledby="search-title"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-search"/></svg><h3 id="search-title">Search and PDF viewer <span class="soon">Coming soon</span></h3><p>Search the text of the documents you may open. Each result shows the matching passage and opens the PDF at that page, with the passage highlighted. Today the library finds documents by title or ID.</p></article>
+        <article class="col" id="signup" aria-labelledby="signup-title"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg><h3 id="signup-title">Sign-up by email <span class="soon">Coming soon</span></h3><p>Ask for a link with your work email, name your organization and become its first Org Admin. The link lasts 30 minutes. Today the Peaplexa team sets up each organization.</p></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" aria-labelledby="cta-title">
+  <div class="wrap cta-in">
+    <div class="cta-copy">
+      <h2 id="cta-title">See a file go through Peaplexa</h2>
+      <p class="lead">Tell us about the documents you keep and who needs them. We will walk you through an upload, its scan, its versions and who can open it.</p>
+    </div>
+    <div class="actions">
+      <a class="btn btn-white" href="/request-a-demo/">Request a demo</a>
+      <a class="cta-mail" href="mailto:info@datagonomix.com"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>info@datagonomix.com</a>
+    </div>
+  </div>
+</section>
+
+
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand brand-dark" href="/" aria-label="Peaplexa home"><svg class="mark" viewBox="0 0 40 40" width="36" height="36" aria-hidden="true" focusable="false"><use href="#brand-mark"/></svg><span class="brand-name">Peaplexa</span></a>
+      <p>Intelligent Document Management. A security scan on every upload, every version kept, and a workspace for each organization.</p>
+      <a class="foot-mail" href="mailto:info@datagonomix.com"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>info@datagonomix.com</a>
+    </div>
+    <nav class="foot-col foot-product" aria-label="Product"><h2><a href="/product/">Product</a></h2><ul><li><a href="/product/#upload">Upload and scan</a></li><li><a href="/product/#states">File states</a></li><li><a href="/product/#versions">Versions</a></li><li><a href="/product/#labels">Labels and library</a></li><li><a href="/product/#workspaces">Workspaces and roles</a></li><li><a href="/product/#sharing">Sharing</a></li><li><a href="/product/#watched">Watched folders</a></li><li><a href="/product/#search">Search and PDF viewer</a></li><li><a href="/product/#connected-apps">Connected Apps</a></li><li><a href="/product/#signup">Sign-up by email</a></li></ul></nav><nav class="foot-col foot-who" aria-label="Who it is for"><h2><a href="/who-it-is-for/">Who it is for</a></h2><ul><li><a href="/who-it-is-for/#org-admins">Org Admins</a></li><li><a href="/who-it-is-for/#document-managers">Document Managers</a></li><li><a href="/who-it-is-for/#members">Members</a></li><li><a href="/who-it-is-for/#portal-users">Clients and vendors</a></li><li><a href="/who-it-is-for/#operators">The Peaplexa team</a></li><li><a href="/who-it-is-for/#apps">Your own products</a></li></ul></nav><nav class="foot-col foot-security" aria-label="Security"><h2><a href="/security/">Security</a></h2><ul><li><a href="/security/#scan">The upload scan</a></li><li><a href="/security/#access">Who can reach a file</a></li><li><a href="/security/#sessions">Sign-in and sessions</a></li><li><a href="/security/#apps">Connected App credentials</a></li><li><a href="/security/#questions">What this page leaves out</a></li></ul></nav>
+  </div>
+  <div class="wrap foot-base">
+    <p>&copy; 2026 Peaplexa by Datagonomix</p>
+    <p>Screens on this site use sample data.</p>
+    <p><a href="#">Sign in to the app</a></p>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>
