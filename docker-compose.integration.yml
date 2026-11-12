@@ -1,0 +1,17 @@
+# Dokploy Integration deployment for the static DMS marketing website.
+# Configure the Dokploy domain to target service dms-website on port 80.
+services:
+  dms-website:
+    image: dms-website-integration:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    expose:
+      - "80"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
