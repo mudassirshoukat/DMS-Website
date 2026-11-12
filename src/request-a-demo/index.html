@@ -174,7 +174,8 @@
       <p class="sec-intro">Send the form and your request goes straight to the Peaplexa team at info@datagonomix.com. We write back to the work email you give.</p>
     </div>
     <div class="sec-body row">
-      <form class="form demo-form span-7" data-demo-form data-contact="info@datagonomix.com" action="/demo-request.php" method="post" novalidate>
+      <form class="form demo-form span-7" data-demo-form data-contact="info@datagonomix.com" data-site="" action="https://formsubmit.co/info@datagonomix.com" method="post">
+        <input type="hidden" name="_subject" value="Peaplexa demo request">
         <div class="field">
           <label for="f-name">Name</label>
           <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-error">
@@ -195,10 +196,10 @@
           <textarea id="f-message" name="message" rows="5" required aria-describedby="f-message-error"></textarea>
           <p class="field-error" id="f-message-error"></p>
         </div>
-        <!-- Kept off screen. People never fill it in; spam bots do, and the server then sends nothing. -->
+        <!-- Kept off screen. People never fill it in; spam bots do, and FormSubmit then sends nothing. -->
         <div class="form-trap" aria-hidden="true">
           <label for="f-website">Leave this empty</label>
-          <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          <input id="f-website" name="_honey" type="text" tabindex="-1" autocomplete="off">
         </div>
         <div class="form-actions">
           <button class="btn btn-pill" type="submit" data-send>Send request<svg class="arr arr-r" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M2.5 8h11M9.25 3.75 13.5 8l-4.25 4.25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>

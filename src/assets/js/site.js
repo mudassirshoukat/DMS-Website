@@ -261,11 +261,13 @@
   // ---------- The demo form ----------
   const form = document.querySelector('[data-demo-form]');
   if (form) {
+    // With JavaScript the page checks the fields itself; without it the browser's own checks stay on.
+    form.noValidate = true;
     const status = form.querySelector('[data-form-status]');
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
     const rules = {
       name: (v) => (v.length < 2 ? 'Enter your name.' : ''),
-      // Also refuses what the server refuses: two dots in a row, a dot at the end, letters outside a to z.
+      // Also refuses two dots in a row, a dot at the end and letters outside a to z.
       email: (v) => (!v ? 'Enter your work email.' : emailPattern.test(v) && !/\.\.|\.$|[^\x21-\x7e]/.test(v) ? '' : 'Enter an email address like name@company.com.'),
       company: (v) => (!v ? 'Enter your company name.' : ''),
       message: (v) => (v.length < 10 ? 'Tell us a little about your documents, in a sentence or two.' : '')
@@ -294,6 +296,9 @@
 
     const send = form.querySelector('[data-send]');
     const contact = form.dataset.contact;
+    // The live site address (site.config.json siteUrl). Once set, it is sent as _url, which FormSubmit
+    // shows as the form's page in each email (browsers only send the bare domain as the Referer).
+    const site = form.dataset.site || '';
     let sending = false;
 
     // Shows the note under the button: a bold first line, then the details, built as text (never as HTML).
@@ -313,7 +318,9 @@
       status.focus();
     };
 
-    // The request goes to the server, which emails it to the team. "Thanks" shows only when that worked.
+    // The request is emailed to the team straight from the page through FormSubmit (formsubmit.co),
+    // a free form-to-email service, so the site needs no server code. FormSubmit needs a one-time
+    // "Activate form" click in the inbox at go-live. "Thanks" shows only when FormSubmit confirms.
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
       if (sending) return;
@@ -328,21 +335,38 @@
       sending = true;
       send.disabled = true;
       send.setAttribute('aria-busy', 'true');
-      const email = form.elements.email.value.trim();
+      const value = (name) => form.elements[name].value.trim();
+      const email = value('email');
+      const body = {
+        name: value('name'),
+        email,
+        company: value('company'),
+        message: value('message'),
+        _subject: `Peaplexa demo request: ${value('name')} (${value('company')})`,
+        _replyto: email,
+        _template: 'table',
+        _captcha: 'false',
+        _honey: form.elements._honey.value
+      };
+      if (site) body._url = site;
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 15000);
       let ok = false;
-      let refusal = '';
       try {
-        const response = await fetch(form.action, {
+        const response = await fetch(`https://formsubmit.co/ajax/${contact}`, {
           method: 'POST',
-          body: new FormData(form),
-          headers: { Accept: 'application/json' }
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(body),
+          // The browser's normal Referer header stays on: FormSubmit refuses requests without it.
+          signal: controller.signal
         });
         const answer = await response.json().catch(() => null);
-        ok = response.ok && Boolean(answer && answer.ok);
-        // A 400 means the server checked the details and wants one fixed; its message says which.
-        if (response.status === 400 && answer && typeof answer.message === 'string') refusal = answer.message;
+        // FormSubmit answers {"success": "true"}; anything else, including "needs activation", is not sent.
+        ok = response.ok && Boolean(answer) && String(answer.success) === 'true';
       } catch {
         ok = false;
+      } finally {
+        clearTimeout(timer);
       }
       sending = false;
       send.disabled = false;
@@ -351,14 +375,6 @@
         form.reset();
         tried = false;
         say(true, 'Thanks, your request was sent.', `The Peaplexa team will write back to ${email}.`);
-      } else if (refusal) {
-        say(false, 'Your request was not sent.', `${refusal} `);
-        if (/email/i.test(refusal)) {
-          const field = form.elements.email;
-          document.getElementById(`${field.id}-error`).textContent = refusal;
-          field.setAttribute('aria-invalid', 'true');
-          field.focus();
-        }
       } else {
         say(false, 'Your request was not sent.', 'Please try again in a moment, or write to us at ', true);
       }
