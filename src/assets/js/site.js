@@ -335,6 +335,7 @@
       sending = true;
       send.disabled = true;
       send.setAttribute('aria-busy', 'true');
+      say(true, 'Sending your request.', ' This can take up to a minute. Please keep this page open.');
       const value = (name) => form.elements[name].value.trim();
       const email = value('email');
       const body = {
@@ -350,7 +351,9 @@
       };
       if (site) body._url = site;
       const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 15000);
+      // FormSubmit can take more than half a minute to answer (34 seconds measured on 12 Nov 2026),
+      // so the page waits up to a minute before it calls the request not sent.
+      const timer = setTimeout(() => controller.abort(), 60000);
       let ok = false;
       try {
         const response = await fetch(`https://formsubmit.co/ajax/${contact}`, {
@@ -363,6 +366,8 @@
         const answer = await response.json().catch(() => null);
         // FormSubmit answers {"success": "true"}; anything else, including "needs activation", is not sent.
         ok = response.ok && Boolean(answer) && String(answer.success) === 'true';
+        // FormSubmit's own reason (for example "This form needs Activation") for whoever checks the console.
+        if (!ok && answer && answer.message) console.info(`FormSubmit: ${answer.message}`);
       } catch {
         ok = false;
       } finally {
