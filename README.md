@@ -16,9 +16,13 @@ Create a Compose service in the existing DMS Dokploy project with these settings
 | Container port | `80` |
 | Trigger | On push; enable Autodeploy for this Integration service |
 
-Add the Integration hostname in Dokploy's Domains tab and route it to `dms-website:80`. Dokploy/Traefik should provide the public HTTPS route; the container only listens on its private service port. No environment variables or persistent volumes are needed. This checkout deploys static HTML, CSS, JavaScript and images with Nginx; it does not require PHP.
+Add the Integration hostname in Dokploy's Domains tab and route it to `dms-website:80`. Dokploy/Traefik should provide the public HTTPS route; the container only listens on its private service port. No persistent volumes are needed. The only environment variable is `VITE_DMS_PORTAL_URL` (see Sign in link below); the Integration compose file already sets it. This checkout deploys static HTML, CSS, JavaScript and images with Nginx; it does not require PHP.
 
 Keep this service's deployment branch on `develop`. Only changes reaching that branch should deploy to Integration; the website's production domain should use a separately configured production service and branch.
+
+### Sign in link
+
+The website's Sign in links open the DMS app's `/login`. Set `VITE_DMS_PORTAL_URL` on the service to the app's address for that deployment, without `/login` (for example `https://app-dev.docluma.cloud`). The container writes it into `portal-config.js` when it starts (`docker/40-portal-url.sh`), and nginx serves that file uncached. No address is built into the pages: if the variable is not set, the Sign in links go nowhere instead of to another environment's app. `docker-compose.integration.yml` sets the Integration address.
 
 ### Request a demo form
 

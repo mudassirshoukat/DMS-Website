@@ -1,5 +1,17 @@
 // Navigation, the blue band, the scanner's motion controls and the demo form. No dependencies.
 (() => {
+  // The app's address for this deployment (portal-config.js). The Sign in links open its
+  // /login. Without an address, or with anything that is not a web address, they stay as they are.
+  const portal =
+    typeof window.PEAPLEXA_PORTAL_URL === 'string'
+      ? window.PEAPLEXA_PORTAL_URL.trim().replace(/\/+$/, '').replace(/\/login$/i, '')
+      : '';
+  if (/^https?:\/\/[^\s"'<>]+$/i.test(portal)) {
+    document.querySelectorAll('[data-portal-link]').forEach((link) => {
+      link.href = `${portal}/login`;
+    });
+  }
+
   const OPEN_DELAY = 90;
   const CLOSE_DELAY = 220;
   const items = [...document.querySelectorAll('.has-menu')];
