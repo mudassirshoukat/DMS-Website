@@ -1,6 +1,6 @@
 # DMS-Website
 
-Static Peaplexa marketing website for the DMS suite.
+Static Doxyle marketing website for the DMS suite.
 
 ## Dokploy Integration deployment
 

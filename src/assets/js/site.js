@@ -3,8 +3,8 @@
   // The app's address for this deployment (portal-config.js). The Sign in links open its
   // /login. Without an address, or with anything that is not a web address, they stay as they are.
   const portal =
-    typeof window.PEAPLEXA_PORTAL_URL === 'string'
-      ? window.PEAPLEXA_PORTAL_URL.trim().replace(/\/+$/, '').replace(/\/login$/i, '')
+    typeof window.DOXYLE_PORTAL_URL === 'string'
+      ? window.DOXYLE_PORTAL_URL.trim().replace(/\/+$/, '').replace(/\/login$/i, '')
       : '';
   if (/^https?:\/\/[^\s"'<>]+$/i.test(portal)) {
     document.querySelectorAll('[data-portal-link]').forEach((link) => {
@@ -355,7 +355,7 @@
         email,
         company: value('company'),
         message: value('message'),
-        _subject: `Peaplexa demo request: ${value('name')} (${value('company')})`,
+        _subject: `Doxyle demo request: ${value('name')} (${value('company')})`,
         _replyto: email,
         _template: 'table',
         _captcha: 'false',
@@ -391,7 +391,7 @@
       if (ok) {
         form.reset();
         tried = false;
-        say(true, 'Thanks, your request was sent.', `The Peaplexa team will write back to ${email}.`);
+        say(true, 'Thanks, your request was sent.', `The Doxyle team will write back to ${email}.`);
       } else {
         say(false, 'Your request was not sent.', 'Please try again in a moment, or write to us at ', true);
       }

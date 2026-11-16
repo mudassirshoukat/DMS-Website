@@ -389,7 +389,7 @@
   line-height: 1.6;
 }
 
-/* Your product, four lanes, Peaplexa: drawn straight on the band, two fine rails and four arrows. */
+/* Your product, four lanes, Doxyle: drawn straight on the band, two fine rails and four arrows. */
 .flow {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr) minmax(0, 1fr);
@@ -588,7 +588,7 @@
     max-width: 560px;
   }
 
-  /* The flow stacks: your product, the four lanes as a ruled list, then Peaplexa. */
+  /* The flow stacks: your product, the four lanes as a ruled list, then Doxyle. */
   .flow {
     grid-template-columns: minmax(0, 1fr);
     row-gap: var(--s5);

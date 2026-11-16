@@ -6,4 +6,4 @@
 set -eu
 # Quotes, backslashes and angle brackets are dropped so the value stays plain text.
 url=$(printf '%s' "${VITE_DMS_PORTAL_URL:-}" | tr -d "\"'\\\\<>")
-printf "window.PEAPLEXA_PORTAL_URL = '%s';\n" "$url" > /usr/share/nginx/html/portal-config.js
+printf "window.DOXYLE_PORTAL_URL = '%s';\n" "$url" > /usr/share/nginx/html/portal-config.js
