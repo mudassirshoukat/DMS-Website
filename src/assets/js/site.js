@@ -344,13 +344,21 @@
         firstBad.focus();
         return;
       }
+      // Offline, the request cannot leave this device, so it is surely not sent.
+      if (navigator.onLine === false) {
+        say(false, 'Your request was not sent.', 'This device seems to be offline. Check your internet connection and try again, or write to us at ', true);
+        return;
+      }
       sending = true;
       send.disabled = true;
       send.setAttribute('aria-busy', 'true');
-      say(true, 'Sending your request.', ' This can take up to a minute. Please keep this page open.');
+      say(true, 'Sending your request.', ' This can take a minute or two. Please keep this page open.');
       const value = (name) => form.elements[name].value.trim();
       const email = value('email');
-      const body = {
+      // Sent as plain form fields (the browser labels them application/x-www-form-urlencoded) with only an
+      // Accept header. That keeps it a simple request, so the browser skips the extra permission check
+      // (the CORS preflight) it makes before a JSON post. That check alone took 13 to 42 seconds on 17 Nov 2026.
+      const body = new URLSearchParams({
         name: value('name'),
         email,
         company: value('company'),
@@ -360,40 +368,54 @@
         _template: 'table',
         _captcha: 'false',
         _honey: form.elements._honey.value
-      };
-      if (site) body._url = site;
+      });
+      if (site) body.set('_url', site);
       const controller = new AbortController();
-      // FormSubmit can take more than half a minute to answer (34 seconds measured on 12 Nov 2026),
-      // so the page waits up to a minute before it calls the request not sent.
-      const timer = setTimeout(() => controller.abort(), 60000);
-      let ok = false;
+      // FormSubmit can take more than half a minute to answer (34 seconds measured on 12 Nov 2026), so the
+      // page waits up to 90 seconds (Cloudflare, in front of FormSubmit, usually stops waiting at 100 seconds).
+      const timer = setTimeout(() => controller.abort(), 90000);
+      // After 20 seconds the first line says it is still sending. Only the text changes, so the focus stays put.
+      const slow = setTimeout(() => {
+        const title = status.querySelector('strong');
+        if (title) title.textContent = 'Still sending your request.';
+      }, 20000);
+      // "sent" and "failed" come only from FormSubmit's own answer. No answer in time, a dropped connection
+      // or an answer the page cannot read stays "unknown": FormSubmit may still deliver the email.
+      let outcome = 'unknown';
       try {
         const response = await fetch(`https://formsubmit.co/ajax/${contact}`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify(body),
+          headers: { Accept: 'application/json' },
+          body,
           // The browser's normal Referer header stays on: FormSubmit refuses requests without it.
           signal: controller.signal
         });
         const answer = await response.json().catch(() => null);
-        // FormSubmit answers {"success": "true"}; anything else, including "needs activation", is not sent.
-        ok = response.ok && Boolean(answer) && String(answer.success) === 'true';
+        const success = answer && answer.success != null ? String(answer.success) : '';
+        // FormSubmit answers {"success": "true"}. Its "false" (for example "needs activation") or a refusal (4xx) is not sent.
+        if (response.ok && success === 'true') outcome = 'sent';
+        else if (success !== 'true' && (success || (response.status >= 400 && response.status < 500))) outcome = 'failed';
         // FormSubmit's own reason (for example "This form needs Activation") for whoever checks the console.
-        if (!ok && answer && answer.message) console.info(`FormSubmit: ${answer.message}`);
+        if (outcome !== 'sent' && answer && answer.message) console.info(`FormSubmit: ${answer.message}`);
       } catch {
-        ok = false;
+        outcome = 'unknown';
       } finally {
         clearTimeout(timer);
+        clearTimeout(slow);
       }
       sending = false;
       send.disabled = false;
       send.removeAttribute('aria-busy');
-      if (ok) {
+      if (outcome === 'sent') {
         form.reset();
         tried = false;
         say(true, 'Thanks, your request was sent.', `The Doxyle team will write back to ${email}.`);
-      } else {
+      } else if (outcome === 'failed') {
         say(false, 'Your request was not sent.', 'Please try again in a moment, or write to us at ', true);
+      } else {
+        // The blue note, not the red one: the request may well have arrived (it did on 17 Nov 2026).
+        // The fields stay filled in, so the visitor can copy them into an email.
+        say(true, 'We could not confirm that your request was sent.', 'It may still reach us. To be sure, you can also write to us at ', true);
       }
     });
   }

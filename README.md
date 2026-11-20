@@ -26,4 +26,4 @@ The website's Sign in links open the DMS app's `/login`. Set `VITE_DMS_PORTAL_UR
 
 ### Request a demo form
 
-The current form submits through FormSubmit's AJAX endpoint to `info@datagonomix.com` (`formsubmit.co/ajax/...`). It does not call `src/demo-request.php`, and the repository has no PHP handler. The first real submission may require completing FormSubmit's one-time activation from the inbox for `info@datagonomix.com`; successful sends depend on that third-party service being available. No SMTP credentials are stored in this repository or required by the website container.
+The current form submits through FormSubmit's AJAX endpoint to `info@doxyle.com` (`formsubmit.co/ajax/...`). It does not call `src/demo-request.php`, and the repository has no PHP handler. The first real submission may require completing FormSubmit's one-time activation from the inbox for `info@doxyle.com`; successful sends depend on that third-party service being available. No SMTP credentials are stored in this repository or required by the website container.
