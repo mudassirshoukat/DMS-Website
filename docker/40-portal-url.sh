@@ -1,6 +1,6 @@
 #!/bin/sh
 # Writes the app's address for the website's Sign in links when the container starts.
-# Set VITE_DMS_PORTAL_URL per deployment, for example https://app-dev.docluma.cloud
+# Set VITE_DMS_PORTAL_URL per deployment, for example https://app-stage.doxyle.com
 # (the page adds /login). When it is not set, the links go nowhere rather than to the
 # wrong environment's app.
 set -eu
