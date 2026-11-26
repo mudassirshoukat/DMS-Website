@@ -1,0 +1,471 @@
+/*
+ * Request a demo and the 404 page. Loaded after site.css by both pages (css: page-request-a-demo).
+ * Request a demo: a short navy page head with a drawing of the request the form sends, then one white
+ * section in the shared pattern: the heading row, the form on the page itself (no panel) and, behind a
+ * hairline, what a demo can show and the address to write to.
+ * 404: the navy screen with the ring, a list of the main pages split by hairlines.
+ */
+
+/* ---------- Request a demo: the page head ---------- */
+.dhead {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(48px, 4.2vw, 72px);
+}
+
+/* The hero's fine measuring grid, fading out before it reaches the words. */
+.dhead::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgb(160 190 255 / 7%) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(90deg, rgb(160 190 255 / 7%) 1px, transparent 1px) 0 0 / 48px 48px;
+  -webkit-mask-image: radial-gradient(46% 80% at 78% 50%, #000 0%, transparent 80%);
+  mask-image: radial-gradient(46% 80% at 78% 50%, #000 0%, transparent 80%);
+  pointer-events: none;
+}
+
+/* A fine sapphire hairline where the head meets the white page. */
+.dhead::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgb(127 162 255 / 0%) 0%, rgb(127 162 255 / 45%) 30%, rgb(127 162 255 / 40%) 70%, rgb(127 162 255 / 0%) 100%);
+  pointer-events: none;
+}
+
+.dhead-in {
+  align-items: center;
+}
+
+.dhead-copy h1 {
+  max-width: 14em;
+  color: #f6f8ff;
+  line-height: 1.08;
+  letter-spacing: -0.024em;
+}
+
+.dhead-copy .lead {
+  max-width: 34em;
+  margin-top: 20px;
+  color: #b9c4da;
+  font-size: var(--t-hero-lead);
+  line-height: 1.65;
+}
+
+/* ---------- The request the form sends, drawn ---------- */
+.draft {
+  position: relative;
+  justify-self: end;
+  width: 100%;
+  max-width: 520px;
+  margin: 0;
+}
+
+/* A soft sapphire light behind the window. */
+.draft::before {
+  content: '';
+  position: absolute;
+  inset: -22% -14%;
+  z-index: -1;
+  background: radial-gradient(closest-side, rgb(47 99 234 / 30%), rgb(47 99 234 / 8%) 60%, transparent);
+  pointer-events: none;
+}
+
+.draft-win {
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgb(30 50 110 / 62%) 0%, rgb(12 22 52 / 80%) 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 10%),
+    0 2px 6px rgb(0 0 0 / 22%),
+    0 40px 80px -32px rgb(0 0 0 / 70%);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  font-size: var(--t-small);
+  line-height: 1.5;
+}
+
+.draft-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 36px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--hair-dark);
+  background: rgb(255 255 255 / 3%);
+}
+
+.draft-dots {
+  flex: none;
+  width: 28px;
+  height: 6px;
+  background: radial-gradient(circle, rgb(255 255 255 / 32%) 2.4px, transparent 2.9px) 0 0 / 10px 6px repeat-x;
+}
+
+.draft-name {
+  color: var(--on-dark-2);
+  font-size: var(--t-micro);
+  font-weight: 500;
+}
+
+.draft-meta {
+  margin: 0;
+}
+
+.draft-meta > div {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--s3);
+  padding: 11px 18px;
+  border-bottom: 1px solid var(--hair-dark);
+}
+
+.draft-meta dt {
+  color: var(--on-dark-2);
+  font-size: var(--t-micro);
+}
+
+.draft-meta dd {
+  min-width: 0;
+  margin: 0;
+  color: #fff;
+  font-size: var(--t-ui);
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+/* What the form fills in: sky blue on a fine dashed line. */
+.draft-fill {
+  color: var(--blue-300);
+  font-weight: 500;
+  text-decoration: underline dashed rgb(169 193 255 / 45%);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.draft-body {
+  padding: 16px 18px 4px;
+  color: var(--on-dark-3);
+  font-size: var(--t-small);
+  line-height: 1.85;
+}
+
+.draft-line {
+  display: block;
+  width: 92%;
+  height: 6px;
+  margin-top: 12px;
+  border-radius: 3px;
+  background: rgb(255 255 255 / 9%);
+}
+
+.draft-body p + .draft-line {
+  margin-top: 18px;
+}
+
+.draft-line-short {
+  width: 48%;
+}
+
+.draft-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  padding: 18px 18px 18px;
+}
+
+.draft-send {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 7px;
+  background: linear-gradient(180deg, #3a6ff2, #2556dc);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 22%),
+    inset 0 0 0 1px rgb(13 33 99 / 35%),
+    0 6px 14px -8px rgb(37 86 220 / 80%);
+  color: #fff;
+  font-size: var(--t-micro);
+  font-weight: 600;
+}
+
+.draft-note {
+  color: var(--on-dark-2);
+  font-size: var(--t-micro);
+}
+
+/* ---------- Request a demo: the form, straight on the page ---------- */
+.demo-sec {
+  padding-top: clamp(56px, 4.6vw, 80px);
+}
+
+.demo-form {
+  align-self: start;
+  align-content: start;
+  gap: 22px var(--gap);
+  max-width: 46rem;
+  margin: 0;
+}
+
+.demo-form .field label {
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-size: var(--t-small);
+  font-weight: 600;
+}
+
+.demo-form .field input,
+.demo-form .field textarea {
+  min-height: 46px;
+  border-color: #7f8ba6;
+  border-radius: var(--r-2);
+  box-shadow: inset 0 1px 2px rgb(15 23 42 / 5%);
+}
+
+.demo-form .field textarea {
+  min-height: 152px;
+}
+
+.demo-form .field input:hover,
+.demo-form .field textarea:hover {
+  border-color: var(--ink-2);
+}
+
+.demo-form .field input:focus,
+.demo-form .field textarea:focus {
+  border-color: var(--blue-600);
+  outline: 2px solid var(--blue-600);
+  outline-offset: 0;
+  box-shadow: 0 0 0 4px rgb(47 99 234 / 14%);
+}
+
+.demo-form .field [aria-invalid='true'] {
+  border-color: var(--red);
+}
+
+.demo-form .field [aria-invalid='true']:focus {
+  border-color: var(--red);
+  outline-color: var(--red);
+  box-shadow: 0 0 0 4px rgb(180 35 24 / 14%);
+}
+
+.demo-form .form-actions {
+  margin-top: 4px;
+}
+
+.demo-form .btn {
+  min-height: 44px;
+  padding: 0 20px;
+}
+
+.demo-form .btn:hover .arr-r {
+  transform: translateX(3px);
+}
+
+/* The note after sending: a sapphire rule on its left, no box. */
+.demo-form .form-status {
+  padding: 2px 0 2px 16px;
+  border: 0;
+  border-left: 2px solid var(--blue-600);
+  border-radius: 0;
+  background: none;
+  color: var(--ink-2);
+  font-size: var(--t-body-sm);
+  line-height: 1.6;
+}
+
+.demo-form .form-status strong {
+  margin-bottom: 4px;
+  color: var(--ink);
+  font-size: var(--t-h3);
+}
+
+/* The request did not go through: the same note with a red rule */
+.demo-form .form-status.is-error {
+  border-left-color: #c9372c;
+}
+
+/* The spam trap: off screen, never focused */
+.demo-form .form-trap {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.demo-form [data-send][aria-busy='true'] {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+/* ---------- Request a demo: what to ask to see, and the address ---------- */
+.demo-aside {
+  align-self: start;
+}
+
+.aside-title {
+  color: var(--ink);
+  font-size: var(--t-h3);
+  line-height: 1.35;
+  letter-spacing: -0.004em;
+}
+
+.demo-see {
+  margin-top: 14px;
+  border-top: 1px solid var(--line-2);
+}
+
+.demo-see > li,
+.demo-see > li:first-child {
+  padding-block: 18px;
+}
+
+.demo-see > li:first-child {
+  border-top: 0;
+}
+
+.demo-see p {
+  margin-top: 3px;
+}
+
+.demo-write {
+  padding-top: 24px;
+  border-top: 1px solid var(--line-2);
+}
+
+.demo-mail {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  color: var(--blue-700);
+  font-size: var(--t-body);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.demo-mail .ic {
+  width: 18px;
+  height: 18px;
+  color: var(--blue-600);
+}
+
+.demo-mail:hover span {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+/* ---------- 404 ---------- */
+.nf {
+  isolation: isolate;
+}
+
+.nf::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgb(160 190 255 / 6%) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(90deg, rgb(160 190 255 / 6%) 1px, transparent 1px) 0 0 / 48px 48px;
+  -webkit-mask-image: radial-gradient(44% 62% at 72% 50%, #000 0%, transparent 80%);
+  mask-image: radial-gradient(44% 62% at 72% 50%, #000 0%, transparent 80%);
+  pointer-events: none;
+}
+
+.nf::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgb(127 162 255 / 0%) 0%, rgb(127 162 255 / 40%) 30%, rgb(127 162 255 / 34%) 70%, rgb(127 162 255 / 0%) 100%);
+  pointer-events: none;
+}
+
+.nf-copy h1 {
+  max-width: 14em;
+  color: #f6f8ff;
+}
+
+.nf-copy .lead {
+  color: #b9c4da;
+}
+
+.nf-links {
+  margin-top: var(--s6);
+}
+
+.nf-links a {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr) 16px;
+  align-items: center;
+  gap: 14px;
+  min-height: 52px;
+}
+
+.nf-links a > .ic {
+  width: 18px;
+  height: 18px;
+  color: var(--sky);
+}
+
+.nf-links a > .arr {
+  color: var(--on-dark-2);
+}
+
+.nf-links a:hover > .arr {
+  color: #fff;
+}
+
+/* ---------- Smaller screens ---------- */
+@media (max-width: 991px) {
+  .dhead {
+    padding-block: var(--s7) var(--s8);
+  }
+
+  .dhead-in {
+    row-gap: var(--s6);
+  }
+
+  .draft {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 600px) {
+  .dhead {
+    padding-block: 40px var(--s7);
+  }
+
+  .draft-meta > div {
+    grid-template-columns: 56px minmax(0, 1fr);
+    padding-inline: 14px;
+  }
+
+  .draft-body {
+    padding-inline: 14px;
+  }
+
+  .draft-foot {
+    padding-inline: 14px;
+  }
+
+  .draft-line + .draft-line {
+    display: none;
+  }
+}

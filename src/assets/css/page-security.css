@@ -1,0 +1,781 @@
+/*
+ * Security page. Built from the shared patterns in site.css (.sec, .sec-alt, .sec-deep, .sec-head, .sec-body,
+ * .row, .item, .cols, .list-ruled, .col-divide, .diagram). This file holds only what the page adds:
+ * the glance line, the scan drawing, the rate limit line, the session drawing on the deep band
+ * and the two Connected App drawings. One colour family: navy and sapphire. The only other colours are
+ * the app's own status chips in the scan drawing.
+ */
+
+/* The hero meets the first section on a fine sapphire hairline, as on Home. */
+.page-security .phero::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgb(127 162 255 / 0%) 0%, rgb(127 162 255 / 40%) 30%, rgb(127 162 255 / 36%) 70%, rgb(127 162 255 / 0%) 100%);
+  pointer-events: none;
+}
+
+/* ---------- At a glance: five statements in open columns, split by hairlines, each with its link ---------- */
+.gl {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-top: 1px solid var(--line-2);
+}
+
+.gl > li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 24px 24px 2px;
+}
+
+.gl > li:first-child {
+  padding-left: 0;
+}
+
+.gl > li:last-child {
+  padding-right: 0;
+}
+
+.gl > li + li {
+  border-left: 1px solid var(--line);
+}
+
+.gl > li::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 24px;
+  width: 28px;
+  height: 2px;
+  background: var(--blue-600);
+}
+
+.gl > li:first-child::before {
+  left: 0;
+}
+
+.gl .ic {
+  margin-bottom: 14px;
+  color: var(--blue-600);
+}
+
+.gl p {
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: var(--t-h3);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.004em;
+}
+
+/* The Coming soon tag sits on its own line under the statement. */
+.gl p .soon {
+  display: flex;
+  width: fit-content;
+  margin: 10px 0 0;
+}
+
+.gl .more {
+  margin-top: auto;
+  padding-top: 18px;
+  font-size: var(--t-small);
+}
+
+/* ---------- The upload scan: the statements, and a drawing of the three ways a scan can end ---------- */
+.scan-item .item-text p {
+  max-width: 48ch;
+}
+
+/* The drawing sits on the band over a faint lattice of points that fades out at the edges. */
+.scan-item > .scan-field {
+  flex: none;
+  margin-top: var(--s6);
+}
+
+.scan-field {
+  position: relative;
+  justify-items: start;
+  padding: 8px 0;
+  isolation: isolate;
+}
+
+.scan-field::before {
+  content: '';
+  position: absolute;
+  inset: -24px -12px;
+  z-index: -1;
+  background: radial-gradient(circle, rgb(47 99 234 / 18%) 1px, transparent 1.4px) 0 0 / 16px 16px;
+  -webkit-mask-image: radial-gradient(70% 70% at 40% 50%, #000 0%, transparent 85%);
+  mask-image: radial-gradient(70% 70% at 40% 50%, #000 0%, transparent 85%);
+  pointer-events: none;
+}
+
+.sm {
+  --trunk: 14px;
+  position: relative;
+  width: 100%;
+}
+
+/* The stem: each chip hangs on one line, drawn through the chips' own status dots. */
+.sm-node {
+  position: relative;
+  display: flex;
+  padding-bottom: 28px;
+}
+
+.sm-node::after {
+  content: '';
+  position: absolute;
+  top: 26px;
+  bottom: 0;
+  left: calc(var(--trunk) - 0.75px);
+  width: 1.5px;
+  background: linear-gradient(180deg, var(--a), var(--b));
+}
+
+.sm-in {
+  --a: var(--blue-600);
+  --b: #94a3b8;
+}
+
+.sm-in .chip-upload {
+  padding-left: 7px;
+}
+
+.sm-node:nth-child(2) {
+  --a: #94a3b8;
+  --b: #2ec4e3;
+}
+
+.sm-run {
+  --a: #2ec4e3;
+  --b: #2ec4e3;
+  padding-bottom: 6px;
+}
+
+.sm-ends > ul {
+  position: relative;
+  padding-left: 44px;
+}
+
+.sm-end {
+  --branch: 24px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  padding-block: 11px;
+}
+
+/* The trunk runs down to the last branch; each branch leaves it at the height of its chip. */
+.sm-end::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--trunk) - 44px - 0.75px);
+  width: 1.5px;
+  background: #2ec4e3;
+}
+
+.sm-end:last-child::after {
+  bottom: auto;
+  height: var(--branch);
+}
+
+.sm-end::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--branch) - 0.75px);
+  left: calc(var(--trunk) - 44px);
+  width: calc(44px - var(--trunk) - 4px);
+  border-top: 1.5px solid var(--c);
+}
+
+.sm-ok {
+  --c: var(--green-solid);
+}
+
+.sm-bad {
+  --c: var(--red-solid);
+}
+
+.sm-fail {
+  --c: var(--red-solid);
+}
+
+.sm-bad::before,
+.sm-fail::before {
+  border-top-style: dashed;
+}
+
+.sm-then {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  min-width: 0;
+  color: var(--ink-2);
+  font-size: var(--t-small);
+  line-height: 1.45;
+}
+
+/* Scan failed, as the app shows it: a light red tag, quieter than the solid red of a blocked file. */
+.chip-fail {
+  background: var(--red-bg);
+  color: var(--red);
+  box-shadow: inset 0 0 0 1px #f5c8c3;
+}
+
+/* ---------- Who can reach a file: one more line under the columns ---------- */
+.sec-body:not(.row) > .rate {
+  margin-top: 40px;
+}
+
+.rate {
+  display: grid;
+  grid-template-columns: 20px auto minmax(0, 1fr);
+  column-gap: var(--s4);
+  align-items: baseline;
+  padding-top: 20px;
+  border-top: 1px solid var(--line-2);
+}
+
+.rate .ic {
+  align-self: center;
+  color: var(--blue-600);
+}
+
+.rate h3 {
+  color: var(--ink);
+}
+
+.rate p {
+  color: var(--ink-2);
+  font-size: var(--t-body-sm);
+  line-height: 1.6;
+}
+
+/* ---------- Sign-in and sessions: the shared lists, on the deep band ---------- */
+.sec-deep .list-ruled > li {
+  border-top-color: var(--hair-dark);
+}
+
+.sec-deep .list-ruled > li > .ic {
+  color: var(--sky);
+}
+
+.sec-deep .list-ruled h3 {
+  color: #fff;
+}
+
+.sec-deep .list-ruled p {
+  color: var(--on-dark-3);
+}
+
+.sec-deep .col-divide {
+  border-color: var(--hair-dark);
+}
+
+.page-security .sess {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+/* The browser is drawn as a window: a fine bar with three points above the three places a token could live. */
+.page-security .sess-browser {
+  position: relative;
+  padding: 34px 20px 20px;
+  border-color: rgb(169 193 255 / 22%);
+  background: linear-gradient(180deg, rgb(255 255 255 / 7%), rgb(255 255 255 / 2%));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 7%), 0 24px 48px -28px rgb(0 0 0 / 60%);
+}
+
+.page-security .sess-browser::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  width: 28px;
+  height: 6px;
+  background: radial-gradient(circle, rgb(255 255 255 / 30%) 2.4px, transparent 2.9px) 0 0 / 10px 6px repeat-x;
+}
+
+.page-security .sess-browser::after {
+  content: '';
+  position: absolute;
+  top: 26px;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: rgb(255 255 255 / 8%);
+}
+
+.page-security .sess-title {
+  margin-top: 4px;
+}
+
+.page-security .slot {
+  border-color: rgb(169 193 255 / 14%);
+  background: rgb(5 10 22 / 45%);
+}
+
+.page-security .slot-empty {
+  border-color: rgb(169 193 255 / 30%);
+  background: none;
+}
+
+.page-security .sess-api {
+  border-color: rgb(126 162 255 / 40%);
+  background:
+    radial-gradient(90% 80% at 100% 0%, rgb(77 126 245 / 28%) 0%, rgb(77 126 245 / 0%) 70%),
+    linear-gradient(160deg, var(--blue-900), var(--blue-950));
+  background-color: var(--blue-950);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%), 0 24px 48px -28px rgb(0 0 0 / 70%);
+}
+
+/* ---------- Connected App credentials: two drawings beside the statements ---------- */
+.apps-item > .diagram {
+  flex: none;
+  justify-items: stretch;
+}
+
+.apps-item > .life-text {
+  margin-top: 48px;
+}
+
+/* Two secrets on one timeline. A solid bar is the secret your backend uses, a pale bar one that is active. */
+.rot-grid {
+  --rows: 1 / 5;
+  display: grid;
+  grid-template-columns: [name] 132px [lead] 0.5fr [c1] 1fr [c2] 1fr [c3] 1fr [end];
+  grid-template-rows: auto 40px 40px auto auto;
+  align-items: center;
+  max-width: 600px;
+  color: var(--ink-2);
+  font-size: var(--t-micro);
+  line-height: 1.35;
+}
+
+.rot-tick {
+  grid-row: var(--rows);
+  align-self: stretch;
+  border-left: 1px dashed var(--blue-300);
+}
+
+.rot-t1 {
+  grid-column: c1 / c2;
+}
+
+.rot-t2 {
+  grid-column: c2 / c3;
+}
+
+.rot-t3 {
+  grid-column: c3 / end;
+}
+
+.rot-both {
+  position: relative;
+  grid-row: 1;
+  grid-column: c1 / c3;
+  padding: 0 0 14px;
+  color: var(--blue-700);
+  font-weight: 600;
+  text-align: center;
+}
+
+.rot-both::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+  left: 0;
+  height: 7px;
+  border: 1px solid var(--blue-300);
+  border-bottom: 0;
+  border-radius: 3px 3px 0 0;
+}
+
+.rot-name {
+  grid-column: name / lead;
+  padding-right: var(--s3);
+  color: var(--ink);
+  font-size: var(--t-small);
+  font-weight: 600;
+}
+
+.rot-n1,
+.rot-old-use,
+.rot-old-idle,
+.rot-gone {
+  grid-row: 2;
+}
+
+.rot-n2,
+.rot-new-idle,
+.rot-new-use {
+  grid-row: 3;
+}
+
+.rot-seg {
+  position: relative;
+  z-index: 1;
+  height: 10px;
+}
+
+.rot-old-use,
+.rot-new-use {
+  background: linear-gradient(90deg, var(--blue-700), var(--blue-600));
+  box-shadow: 0 6px 14px -8px rgb(29 69 184 / 70%);
+}
+
+.rot-old-idle,
+.rot-new-idle {
+  background: var(--blue-200);
+  box-shadow: inset 0 0 0 1px var(--blue-300);
+}
+
+.rot-old-use {
+  grid-column: lead / c2;
+  border-radius: 5px 0 0 5px;
+}
+
+.rot-old-idle {
+  grid-column: c2 / c3;
+  margin-left: 2px;
+  border-radius: 0 2px 2px 0;
+}
+
+/* The revoked end: a hard stop, then nothing. */
+.rot-old-idle::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -1px;
+  width: 2px;
+  height: 20px;
+  border-radius: 1px;
+  background: var(--navy-800);
+}
+
+.rot-gone {
+  grid-column: c3 / end;
+  padding-left: 10px;
+  color: var(--muted);
+}
+
+.rot-new-idle {
+  grid-column: c1 / c2;
+  border-radius: 5px 0 0 5px;
+}
+
+.rot-new-use {
+  grid-column: c2 / end;
+  margin-left: 2px;
+  border-radius: 0 5px 5px 0;
+}
+
+.rot-step {
+  position: relative;
+  grid-row: 4;
+  align-self: start;
+  padding: 12px 10px 0 10px;
+  color: var(--ink-2);
+}
+
+.rot-step::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3.5px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue-600);
+  box-shadow: 0 0 0 3px var(--band-ice);
+}
+
+.rot-s1 {
+  grid-column: c1 / c2;
+}
+
+.rot-s2 {
+  grid-column: c2 / c3;
+}
+
+.rot-s3 {
+  grid-column: c3 / end;
+}
+
+.rot-key {
+  grid-row: 5;
+  grid-column: lead / end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  margin-top: 20px;
+  color: var(--muted);
+}
+
+.rot-key > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rot-key > span::before {
+  content: '';
+  width: 18px;
+  height: 8px;
+  border-radius: 3px;
+}
+
+.rot-k-use::before {
+  background: linear-gradient(90deg, var(--blue-700), var(--blue-600));
+}
+
+.rot-k-idle::before {
+  background: var(--blue-200);
+  box-shadow: inset 0 0 0 1px var(--blue-300);
+}
+
+/* How long each token lasts, on one scale. */
+.life-grid {
+  display: grid;
+  grid-template-columns: [name] 132px [bar] minmax(0, 1fr) [end];
+  row-gap: 10px;
+  align-items: center;
+  max-width: 600px;
+  font-size: var(--t-micro);
+  line-height: 1.35;
+}
+
+.life-name {
+  grid-column: name / bar;
+  padding-right: var(--s3);
+  color: var(--ink);
+  font-size: var(--t-small);
+  font-weight: 600;
+}
+
+/* The track carries a fine guide at 30 minutes and at the hour. */
+.life-bar {
+  grid-column: bar / end;
+  background:
+    linear-gradient(var(--blue-200), var(--blue-200)) 50% 0 / 1px 100% no-repeat,
+    linear-gradient(var(--blue-200), var(--blue-200)) 100% 0 / 1px 100% no-repeat;
+}
+
+.life-bar > span {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, var(--blue-700), var(--blue-600));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 18%), 0 6px 14px -8px rgb(29 69 184 / 70%);
+  color: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.life-60 > span {
+  width: 100%;
+}
+
+.life-30 > span {
+  width: 50%;
+  background: linear-gradient(90deg, var(--blue-700), var(--blue-600));
+}
+
+.life-axis {
+  position: relative;
+  grid-column: bar / end;
+  height: 26px;
+  margin-top: 2px;
+  border-top: 1px solid var(--line-2);
+  color: var(--muted);
+}
+
+.life-axis > span {
+  position: absolute;
+  top: 6px;
+}
+
+.life-axis > span:nth-child(1) {
+  left: 0;
+}
+
+.life-axis > span:nth-child(2) {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.life-axis > span:nth-child(3) {
+  right: 0;
+}
+
+/* ---------- Smaller screens ---------- */
+@media (max-width: 1179px) {
+  /* The session drawing needs the full width; its four statements follow in two columns. */
+  .sess-item,
+  .sess-list {
+    --span: 12;
+  }
+
+  .sec-deep .sess-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--gap);
+    padding: 8px 0 0;
+    border-left: 0;
+  }
+
+  .sess-list > li:nth-child(2) {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  /* The glance becomes a list of rows: glyph, statement, then its link. */
+  .gl {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gl > li,
+  .gl > li:first-child,
+  .gl > li:last-child,
+  .gl > li + li {
+    display: grid;
+    grid-template-columns: 20px minmax(0, 1fr) auto;
+    column-gap: var(--s4);
+    align-items: baseline;
+    padding: 18px 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .gl > li::before {
+    display: none;
+  }
+
+  .gl .ic {
+    align-self: center;
+    margin: 0;
+  }
+
+  .gl .more {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .sec-deep .sess-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sess-list > li:nth-child(2) {
+    padding-top: 22px;
+    border-top: 1px solid var(--hair-dark);
+  }
+
+  .gl > li,
+  .gl > li:first-child,
+  .gl > li:last-child {
+    grid-template-columns: 20px minmax(0, 1fr);
+    row-gap: 8px;
+  }
+
+  .gl .ic {
+    align-self: start;
+    margin-top: 2px;
+  }
+
+  .gl .more {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .rate {
+    grid-template-columns: 20px minmax(0, 1fr);
+    row-gap: 4px;
+  }
+
+  .rate .ic {
+    grid-row: 1 / span 2;
+    align-self: start;
+    margin-top: 1px;
+  }
+
+  .rate p {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  /* The drawings put each name on its own line above its bar. */
+  .rot-grid {
+    --rows: 1 / 7;
+    grid-template-columns: [name lead] 0.4fr [c1] 1fr [c2] 1fr [c3] 1fr [end];
+    grid-template-rows: auto auto 28px auto 28px auto auto;
+  }
+
+  .rot-name {
+    grid-column: name / end;
+    padding: 8px 0 0;
+  }
+
+  .rot-n1 {
+    grid-row: 2;
+  }
+
+  .rot-old-use,
+  .rot-old-idle,
+  .rot-gone {
+    grid-row: 3;
+  }
+
+  .rot-n2 {
+    grid-row: 4;
+  }
+
+  .rot-new-idle,
+  .rot-new-use {
+    grid-row: 5;
+  }
+
+  .rot-step {
+    grid-row: 6;
+    padding: 12px 4px 0 8px;
+  }
+
+  .rot-key {
+    grid-row: 7;
+    grid-column: name / end;
+  }
+
+  .rot-gone {
+    padding-left: 8px;
+  }
+
+  .life-grid {
+    grid-template-columns: [name bar] minmax(0, 1fr) [end];
+    row-gap: 6px;
+  }
+
+  .life-name {
+    grid-column: name / end;
+  }
+
+  .life-bar + .life-name {
+    margin-top: 8px;
+  }
+}
